@@ -1,0 +1,27 @@
+<h1>List Students</h1>
+<br>
+<button class="btn btn-success" routerLink="create">Create new Student</button>
+<br>
+<br>
+<h3>Hien tai dang co {{ListStudents.length}} hoc vien</h3>
+<br>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of ListStudents; index as i">
+            <td>{{i+1}}</td>
+            <td (click)="getEdit(student)" routerLink="detail">{{student.name}}</td>
+            <td>{{student.address}}</td>
+            <td><button class="btn btn-secondary" (click)="getEdit(student)" routerLink="edit">Edit</button></td>
+            <td><button class="btn btn-secondary" (click)="deleteStudent(student)" routerLink="delete">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
